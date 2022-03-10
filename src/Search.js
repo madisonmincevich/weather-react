@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import axios from "axios";
 import SearchResults from "./SearchResults.js";
+import WeatherForecast from "./WeatherForecast.js";
 
 export default function Search(props) {
   const [ready, setReady] = useState(false);
@@ -10,6 +11,7 @@ export default function Search(props) {
   function showWeather(response) {
     setWeatherData({
       city: response.data.name,
+      coordinates: response.data.coord,
       temperature: response.data.main.temp,
       wind: response.data.wind.speed,
       icon: response.data.weather[0].icon,
@@ -35,17 +37,23 @@ export default function Search(props) {
     Search();
   }
 
-  return (
-    <div className="Search">
-      <form onSubmit={handleSubmit}>
-        <input
-          type="search"
-          placeholder="Type a city..."
-          onChange={changeCity}
-        />
-        <input type="submit" placeholder="Search" />
-      </form>
-      <SearchResults data={weatherData} />
-    </div>
-  );
+  if (ready) {
+    return (
+      <div className="Search">
+        <form onSubmit={handleSubmit}>
+          <input
+            type="search"
+            placeholder="Type a city..."
+            onChange={changeCity}
+          />
+          <input type="submit" placeholder="Search" />
+        </form>
+        <SearchResults data={weatherData} />
+        <WeatherForecast coordinates={weatherData.coordinates} />
+      </div>
+    );
+  } else {
+    Search();
+    return "Loading...";
+  }
 }

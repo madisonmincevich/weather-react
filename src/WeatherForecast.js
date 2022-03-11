@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import WeatherForecastDay from "./WeatherForecastDay.js";
+import "./Forecast.css";
 
 export default function WeatherForecast(props) {
   let [loaded, setLoaded] = useState(false);
@@ -11,13 +12,13 @@ export default function WeatherForecast(props) {
     setLoaded(true);
   }
 
-  if (loaded && props.city === forecast.city.name) {
+  if (loaded) {
     return (
       <div className="WeatherForecast">
         <div class="row">
           {forecast.map(function (dailyForecast, index) {
             return (
-              <div className="col-12" key={index}>
+              <div className="col" key={index}>
                 <WeatherForecastDay data={dailyForecast} />
               </div>
             );
@@ -26,7 +27,9 @@ export default function WeatherForecast(props) {
       </div>
     );
   } else {
-    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?${props.city}&appid=eb98e4302ac840d8fb104f13e5058252&units=imperial`;
+    let longitude = props.coordinates.lon;
+    let latitude = props.coordinates.lat;
+    let apiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${latitude}&lon=${longitude}&appid=eb98e4302ac840d8fb104f13e5058252&units=imperial`;
 
     axios.get(apiUrl).then(handleResponse);
 

@@ -1,0 +1,25 @@
+.Weather {
+  max-width: 800px;
+  margin: auto;
+  margin-top: 50px;
+  font-family: "Open Sans", sans-serif;
+}
+
+@media (min-width: 275px) {
+  .Weather {
+    max-width: 800px;
+  }
+}
+
+.weather-app {
+  padding: 25px;
+  border: 1px solid black;
+  box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.2);
+  background-image: url(https://i.pinimg.com/564x/ab/19/c8/ab19c8e897c2a40b0f52152b19af11b4.jpg);
+  color: #ede6cb;
+  border-radius: 10px;
+}
+
+a {
+  text-decoration: none;
+}

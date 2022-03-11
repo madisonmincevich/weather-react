@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import axios from "axios";
 import SearchResults from "./SearchResults.js";
 import WeatherForecast from "./WeatherForecast.js";
+import "./Search.css";
 
 export default function Search(props) {
   const [ready, setReady] = useState(false);
@@ -45,8 +46,13 @@ export default function Search(props) {
             type="search"
             placeholder="Type a city..."
             onChange={changeCity}
+            className="p-2 w-50 rounded"
           />
-          <input type="submit" placeholder="Search" />
+          <input
+            type="submit"
+            placeholder="Search"
+            className="btn btn-secondary"
+          />
         </form>
         <SearchResults data={weatherData} />
         <WeatherForecast coordinates={weatherData.coordinates} />

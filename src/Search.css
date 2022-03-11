@@ -1,0 +1,40 @@
+.SearchResults {
+  color: #1f3c4e;
+}
+
+ul {
+  list-style-type: none;
+}
+
+.description {
+  text-transform: capitalize;
+  margin-right: 30px;
+}
+
+.temp {
+  font-size: 50px;
+}
+
+.icon {
+  padding: 30px;
+}
+
+.list {
+  padding: 20px;
+}
+
+form {
+  padding: 10px;
+}
+
+.btn {
+  padding: 8px;
+  margin-left: 20px;
+  margin-bottom: 1px;
+  background-color: #1f3c4e !important;
+}
+
+.btn:hover {
+  background-color: #8fafb8 !important;
+  transition: ease-in-out;
+}

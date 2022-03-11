@@ -1,5 +1,6 @@
 import React from "react";
 import Search from "./Search.js";
+import "./Weather.css";
 
 export default function Weather(props) {
   return (
@@ -7,7 +8,16 @@ export default function Weather(props) {
       <div className="weather-app">
         <Search defaultCity="London" />
       </div>
-      <small>Open source code by Maddie Mincevich</small>
+      <small className="fw-bold">
+        <a
+          href="https://github.com/madisonmincevich/weather-react"
+          alt=""
+          target="_blank"
+        >
+          Open source code
+        </a>{" "}
+        by Maddie Mincevich
+      </small>
     </div>
   );
 }

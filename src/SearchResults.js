@@ -18,7 +18,9 @@ export default function SearchResults(props) {
           <span className="icon">
             <WeatherIcon code={props.data.icon} size={50} />
           </span>
-          <span class="temp fw-bold">{Math.round(props.data.temperature)}</span>
+          <span class="temp fw-bold">
+            {Math.round(props.data.temperature)}°F
+          </span>
         </div>
         <div className="list col-6">
           <ul>

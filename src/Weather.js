@@ -13,6 +13,7 @@ export default function Weather(props) {
           href="https://github.com/madisonmincevich/weather-react"
           alt=""
           target="_blank"
+          rel="noreferrer"
         >
           Open source code
         </a>{" "}
